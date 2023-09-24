@@ -35,19 +35,19 @@ jobs:
       
     steps:
       - name: Tell me a Secret!
-        run: echo "My Existing Secret is ${{secrets.ZELDA_API_KEY}}"
+        run: echo "My Existing Secret is ${{secrets.NEXT_PUBLIC_OPENAI_API_KEY}}"
 
       - name: Debug API Key
         run: | 
-          echo "New API Key: ${{secrets.ZELDA_API_KEY}}"
+          echo "New API Key: ${{secrets.NEXT_PUBLIC_OPENAI_API_KEY}}"
       # ... Your existing steps for building your application ...
 
       - name: Make API Call
         run: |
           # You can use the ZELDA_AI_API_KEY environment variable here
-          echo "Making an API call with ZELDA_AI_API_KEY=${{secrets.ZELDA_API_KEY}}"
+          echo "Making an API call with ZELDA_AI_API_KEY=${{secrets.NEXT_PUBLIC_OPENAI_API_KEY}}"
           # Example API call using curl
-          curl -X POST https://api.openai.com/v1/chat/completions -H "Authorization: Bearer ${{secrets.ZELDA_API_KEY}}"
+          curl -X POST https://api.openai.com/v1/chat/completions -H "Authorization: Bearer ${{secrets.NEXT_PUBLIC_OPENAI_API_KEY}}"
       - name: Checkout
         uses: actions/checkout@v3
       - name: Detect package manager
