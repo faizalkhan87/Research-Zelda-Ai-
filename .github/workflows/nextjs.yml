@@ -47,7 +47,7 @@ jobs:
           # You can use the ZELDA_AI_API_KEY environment variable here
           echo "Making an API call with ZELDA_AI_API_KEY=${{secrets.ZELDA_API_KEY}}"
           # Example API call using curl
-          curl -X POST https://api.openai.com/v1/chat/completions -H "Authorization: Bearer $ZELDA_API_KEY"
+          curl -X POST https://api.openai.com/v1/chat/completions -H "Authorization: Bearer ${{secrets.ZELDA_API_KEY}}"
       - name: Checkout
         uses: actions/checkout@v3
       - name: Detect package manager
