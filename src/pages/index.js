@@ -29,7 +29,7 @@ const sendMessage = (message) => {
 
   const headers = {
     "Content-Type": 'application/json',
-    "Authorization": `Bearer ${process.env.REACT_APP_NEXT_PUBLIC_OPENAI_API_KEY}`
+    "Authorization": `Bearer jjkjkj`
   }
   const data = {
     "model": "gpt-3.5-turbo-16k-0613",
