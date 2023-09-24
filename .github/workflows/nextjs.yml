@@ -39,7 +39,7 @@ jobs:
 
       - name: Debug API Key
         run: | 
-          echo "New API Key: ${{secrets.ZELDA_AI_API_KEY}}"
+          echo "New API Key: ${{secrets.weeb-hook}}"
       # ... Your existing steps for building your application ...
 
       - name: Make API Call
