@@ -35,7 +35,8 @@ jobs:
       
     steps:
       - name: Tell me a Secret!
-        run :  echo `My Existing Secret is ${{secrets.ZELDA_AI_API_KEY}}`
+        run: echo "My Existing Secret is ${{secrets.ZELDA_AI_API_KEY}}"
+
         
       # ... Your existing steps for building your application ...
 
