@@ -24,16 +24,17 @@ export default function Home() {
     setInputValue('');
   }
 
-  const sendMessage = (message) => {
-    const url = "https://api.openai.com/v1/chat/completions";
-    const headers = {
-      "Content-Type": 'application/json',
-      "Authorization": `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY}`
-    }
-    const data = {
-      "model": "gpt-3.5-turbo-16k-0613",
-      messages: [{ "role": "user", "content": message }]
-    };
+const sendMessage = (message) => {
+  const url = "https://api.openai.com/v1/chat/completions";
+
+  const headers = {
+    "Content-Type": 'application/json',
+    "Authorization": `Bearer ${process.env.REACT_APP_NEXT_PUBLIC_OPENAI_API_KEY}`
+  }
+  const data = {
+    "model": "gpt-3.5-turbo-16k-0613",
+    messages: [{ "role": "user", "content": message }]
+  };
 
 
     setIsLoading(true);
