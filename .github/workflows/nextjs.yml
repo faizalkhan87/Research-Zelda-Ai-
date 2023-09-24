@@ -41,13 +41,6 @@ jobs:
         run: | 
           echo "New API Key: ${{secrets.NEXT_PUBLIC_OPENAI_API_KEY}}"
       # ... Your existing steps for building your application ...
-
-      - name: Make API Call
-        run: |
-          # You can use the ZELDA_AI_API_KEY environment variable here
-          echo "Making an API call with ZELDA_AI_API_KEY=${{secrets.NEXT_PUBLIC_OPENAI_API_KEY}}"
-          # Example API call using curl
-          curl -X POST https://api.openai.com/v1/chat/completions -H "Authorization: Bearer ${{secrets.NEXT_PUBLIC_OPENAI_API_KEY}}"
       - name: Checkout
         uses: actions/checkout@v3
       - name: Detect package manager
@@ -101,6 +94,22 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./out
+
+          
+  # Make API Call job
+  make-api-call:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: Make API Call
+        run: |
+          # Make the API call here using the Bearer token secret
+          # Replace the API endpoint with your actual endpoint
+          curl -X POST https://api.openai.com/v1/chat/completions -H "Authorization: Bearer ${{ secrets.OPENAI_BEARER_TOKEN }}"
 
   # Deployment job
   deploy:
