@@ -30,7 +30,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ZELDA_AI_API_KEY: ${{secrets.ZELDA_AI_API_KEY}}
+      
     steps:
+      - name: Tell me a Secret!
+        run :  echo `My Existing Secret is ${{secrets.ZELDA_AI_API_KEY}}`
       - name: Checkout
         uses: actions/checkout@v3
       - name: Detect package manager
@@ -73,8 +76,7 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
-      - name: Tell me a Secret!
-        run :  echo `My Existing Secret is ${{secrets.ZELDA_AI_API_KEY}}`
+   
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
